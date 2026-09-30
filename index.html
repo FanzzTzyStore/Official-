@@ -1,1 +1,128 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FanzzTzyStore - Top Up Game & PPOB</title>
+    <!-- FontAwesome untuk Icon -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
 
+    <!-- NAVBAR / HEADER (Logo & Nama) -->
+    <header class="navbar">
+        <div class="logo-container">
+            <img src="assets/logo.png" alt="FanzzTzyStore Logo" class="logo-img" onerror="this.src='https://via.placeholder.com/40/ff0055/ffffff?text=FTS'">
+            <h1 class="brand-name">FanzzTzy<span>Store</span></h1>
+        </div>
+    </header>
+
+    <!-- BANNER SLIDER -->
+    <section class="banner-section">
+        <div class="slider-container">
+            <div class="slider">
+                <img src="assets/banner/banner1.jpg" alt="Banner 1" class="slide active" onerror="this.src='https://via.placeholder.com/800x300/222/ff0055?text=Promo+Top+Up+Murah'">
+                <img src="assets/banner/banner2.jpg" alt="Banner 2" class="slide" onerror="this.src='https://via.placeholder.com/800x300/111/ff0055?text=Layanan+Cepat+24/7'">
+                <img src="assets/banner/banner3.jpg" alt="Banner 3" class="slide" onerror="this.src='https://via.placeholder.com/800x300/333/ff0055?text=Diskon+E-Wallet+%26+Voucher'">
+            </div>
+            <button class="prev-btn" onclick="moveSlide(-1)"><i class="fas fa-chevron-left"></i></button>
+            <button class="next-btn" onclick="moveSlide(1)"><i class="fas fa-chevron-right"></i></button>
+            <div class="dots-container">
+                <span class="dot active" onclick="currentSlide(0)"></span>
+                <span class="dot" onclick="currentSlide(1)"></span>
+                <span class="dot" onclick="currentSlide(2)"></span>
+            </div>
+        </div>
+    </section>
+
+    <!-- SEARCH BAR -->
+    <section class="search-section">
+        <div class="search-box">
+            <i class="fas fa-search search-icon"></i>
+            <input type="text" id="searchInput" placeholder="Cari Game, Pulsa, E-Wallet, Voucher..." onkeyup="filterItems()">
+        </div>
+    </section>
+
+    <!-- KATEGORI TABS -->
+    <section class="category-section">
+        <div class="category-tabs">
+            <button class="tab-btn active" onclick="filterCategory('all', this)"><i class="fas fa-th-large"></i> Semua</button>
+            <button class="tab-btn" onclick="filterCategory('game', this)"><i class="fas fa-gamepad"></i> Game</button>
+            <button class="tab-btn" onclick="filterCategory('pulsa', this)"><i class="fas fa-mobile-alt"></i> Pulsa</button>
+            <button class="tab-btn" onclick="filterCategory('ewallet', this)"><i class="fas fa-wallet"></i> E-Wallet</button>
+            <button class="tab-btn" onclick="filterCategory('voucher', this)"><i class="fas fa-ticket-alt"></i> Voucher</button>
+        </div>
+    </section>
+
+    <!-- LIST TOP UP ITEMS -->
+    <section class="item-grid-section">
+        <div class="item-grid" id="itemGrid">
+            <!-- Item didaftarkan lewat JavaScript -->
+        </div>
+    </section>
+
+    <!-- MODAL POPUP FORM TOP UP -->
+    <div id="topupModal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeModal()">&times;</span>
+            <div class="modal-header">
+                <img id="modalImg" src="" alt="Item Icon">
+                <h2 id="modalTitle">Detail Top Up</h2>
+            </div>
+            
+            <form id="topupForm" onsubmit="submitToWA(event)">
+                <!-- STEP 1: Input ID / Nomor -->
+                <div class="form-group">
+                    <label id="idLabel" for="userId">1. Masukkan ID / Nomor HP</label>
+                    <input type="text" id="userId" placeholder="Contoh: 12345678 (1234)" required>
+                </div>
+
+                <!-- STEP 2: Pilih Nominal -->
+                <div class="form-group">
+                    <label>2. Pilih Nominal / Nominal Top Up</label>
+                    <div class="nominal-grid" id="nominalContainer">
+                        <!-- Pilihan Nominal diisi dinamis via JS -->
+                    </div>
+                    <input type="hidden" id="selectedNominal" required>
+                    <input type="hidden" id="selectedHarga" required>
+                </div>
+
+                <!-- STEP 3: Pilih Pembayaran -->
+                <div class="form-group">
+                    <label>3. Pilih Pembayaran</label>
+                    <div class="payment-grid">
+                        <label class="payment-card">
+                            <input type="radio" name="payment" value="QRIS" required>
+                            <div class="payment-box"><i class="fas fa-qrcode"></i> QRIS</div>
+                        </label>
+                        <label class="payment-card">
+                            <input type="radio" name="payment" value="DANA">
+                            <div class="payment-box"><i class="fas fa-wallet"></i> DANA</div>
+                        </label>
+                        <label class="payment-card">
+                            <input type="radio" name="payment" value="BCA">
+                            <div class="payment-box"><i class="fas fa-university"></i> BCA</div>
+                        </label>
+                    </div>
+                </div>
+
+                <button type="submit" class="submit-btn"><i class="fab fa-whatsapp"></i> Beli Sekarang Via WhatsApp</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- FLOATING WHATSAPP BUTTON (Mengambang) -->
+    <a href="https://wa.me/6289618602130" target="_blank" class="floating-wa" title="Hubungi CS WhatsApp">
+        <i class="fab fa-whatsapp wa-icon"></i>
+    </a>
+
+    <!-- FOOTER & COPYRIGHT -->
+    <footer class="footer">
+        <p>&copy; 2026 <strong>FanzzTzyStore</strong>. Created with <i class="fas fa-heart" style="color:#ff0055;"></i> by AI Assistant.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+  </html>
+              
