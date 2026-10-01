@@ -1,73 +1,184 @@
-// DATABASE PRODUK LENGKAP (20 ITEM PER KATEGORI)
-const products = [
-    // 🎮 GAME (20 ITEMS)
-    { id: 'ff', name: 'Free Fire', category: 'game', img: 'assets/game/freefire.png', fallback: 'https://via.placeholder.com/60/ff0055/fff?text=FF', idPlaceholder: 'Masukkan User ID FF', items: [{ name: '5 💎', price: 'Rp 2.000' }, { name: '12 💎', price: 'Rp 4.000' }, { name: '50 💎', price: 'Rp 8.000' }, { name: '70 💎', price: 'Rp 10.000' }] },
-    { id: 'ml', name: 'Mobile Legends', category: 'game', img: 'assets/game/mobile-legends.png', fallback: 'https://via.placeholder.com/60/ff0055/fff?text=ML', idPlaceholder: 'Masukkan User ID & Zone ID', items: [{ name: '5 💎', price: 'Rp 1.500' }, { name: '12 💎', price: 'Rp 3.500' }, { name: '86 💎', price: 'Rp 20.000' }] },
-    { id: 'pubg', name: 'PUBG Mobile', category: 'game', img: 'assets/game/pubg-mobile.png', fallback: 'https://via.placeholder.com/60/ff0055/fff?text=PUBG', idPlaceholder: 'Masukkan User ID PUBG', items: [{ name: '60 UC', price: 'Rp 15.000' }, { name: '325 UC', price: 'Rp 75.000' }] },
-    { id: 'codm', name: 'Call of Duty Mobile', category: 'game', img: 'assets/game/codm.png', fallback: 'https://via.placeholder.com/60/ff0055/fff?text=CODM', idPlaceholder: 'Masukkan User ID CODM', items: [{ name: '31 CP', price: 'Rp 5.000' }, { name: '62 CP', price: 'Rp 10.000' }] },
-    { id: 'valorant', name: 'Valorant', category: 'game', img: 'assets/game/valorant.png', fallback: 'https://via.placeholder.com/60/ff0055/fff?text=VAL', idPlaceholder: 'Masukkan Riot ID + Tag', items: [{ name: '300 VP', price: 'Rp 35.000' }, { name: '625 VP', price: 'Rp 70.000' }] },
-    { id: 'genshin', name: 'Genshin Impact', category: 'game', img: 'assets/game/genshin.png', fallback: 'https://via.placeholder.com/60/ff0055/fff?text=GI', idPlaceholder: 'Masukkan UID & Server', items: [{ name: '60 Genesis Crystal', price: 'Rp 16.000' }, { name: 'Welkin Moon', price: 'Rp 79.000' }] },
-    { id: 'efootball', name: 'eFootball 2026', category: 'game', img: 'assets/game/efootball.png', fallback: 'https://via.placeholder.com/60/ff0055/fff?text=PES', idPlaceholder: 'Masukkan User ID eFootball', items: [{ name: '130 Coins', price: 'Rp 16.000' }, { name: '550 Coins', price: 'Rp 65.000' }] },
-    { id: 'hsr', name: 'Honkai Star Rail', category: 'game', img: 'assets/game/honkai-star-rail.png', fallback: 'https://via.placeholder.com/60/ff0055/fff?text=HSR', idPlaceholder: 'Masukkan UID & Server', items: [{ name: '60 Oneiric Shard', price: 'Rp 16.000' }, { name: 'Express Supply', price: 'Rp 79.000' }] },
-    { id: 'aov', name: 'Arena of Valor', category: 'game', img: 'assets/game/arena-of-valor.png', fallback: 'https://via.placeholder.com/60/ff0055/fff?text=AOV', idPlaceholder: 'Masukkan Open ID AOV', items: [{ name: '40 Voucher', price: 'Rp 10.000' }, { name: '90 Voucher', price: 'Rp 20.000' }] },
-    { id: 'pb', name: 'Point Blank', category: 'game', img: 'assets/game/point-blank.png', fallback: 'https://via.placeholder.com/60/ff0055/fff?text=PB', idPlaceholder: 'Masukkan ID Zepetto', items: [{ name: '1.200 PB Cash', price: 'Rp 10.000' }, { name: '2.400 PB Cash', price: 'Rp 20.000' }] },
-    { id: 'wildrift', name: 'League of Legends WR', category: 'game', img: 'assets/game/league-of-legends.png', fallback: 'https://via.placeholder.com/60/ff0055/fff?text=LOL', idPlaceholder: 'Masukkan Riot ID', items: [{ name: '425 Wild Cores', price: 'Rp 50.000' }, { name: '1000 Wild Cores', price: 'Rp 115.000' }] },
-    { id: 'fifa', name: 'FC Mobile / FIFA', category: 'game', img: 'assets/game/fifa-mobile.png', fallback: 'https://via.placeholder.com/60/ff0055/fff?text=FC', idPlaceholder: 'Masukkan User ID FC Mobile', items: [{ name: '100 FC Points', price: 'Rp 16.000' }, { name: '520 FC Points', price: 'Rp 79.000' }] },
-    { id: 'sausage', name: 'Sausage Man', category: 'game', img: 'assets/game/sausage-man.png', fallback: 'https://via.placeholder.com/60/ff0055/fff?text=SM', idPlaceholder: 'Masukkan User ID Sausage Man', items: [{ name: '60 Candy', price: 'Rp 15.000' }, { name: '316 Candy', price: 'Rp 75.000' }] },
-    { id: 'roorigin', name: 'Ragnarok Origin', category: 'game', img: 'assets/game/ragnarok-origin.png', fallback: 'https://via.placeholder.com/60/ff0055/fff?text=RO', idPlaceholder: 'Masukkan Secret Code & Server', items: [{ name: '60 Nyan Berry', price: 'Rp 15.000' }, { name: '300 Nyan Berry', price: 'Rp 75.000' }] },
-    { id: 'coc', name: 'Clash of Clans', category: 'game', img: 'assets/game/clash-of-clans.png', fallback: 'https://via.placeholder.com/60/ff0055/fff?text=COC', idPlaceholder: 'Masukkan Player Tag (#)', items: [{ name: '80 Gems', price: 'Rp 16.000' }, { name: 'Gold Pass', price: 'Rp 120.000' }] },
-    { id: 'clashroyale', name: 'Clash Royale', category: 'game', img: 'assets/game/clash-royale.png', fallback: 'https://via.placeholder.com/60/ff0055/fff?text=CR', idPlaceholder: 'Masukkan Player Tag (#)', items: [{ name: '80 Gems', price: 'Rp 16.000' }, { name: 'Diamond Pass', price: 'Rp 180.000' }] },
-    { id: 'stumble', name: 'Stumble Guys', category: 'game', img: 'assets/game/stumble-guys.png', fallback: 'https://via.placeholder.com/60/ff0055/fff?text=SG', idPlaceholder: 'Masukkan User ID Stumble', items: [{ name: '250 Gems', price: 'Rp 12.000' }, { name: '800 Gems', price: 'Rp 32.000' }] },
-    { id: 'brawl', name: 'Brawl Stars', category: 'game', img: 'assets/game/brawl-stars.png', fallback: 'https://via.placeholder.com/60/ff0055/fff?text=BS', idPlaceholder: 'Masukkan Player Tag (#)', items: [{ name: '30 Gems', price: 'Rp 32.000' }, { name: '80 Gems', price: 'Rp 79.000' }] },
-    { id: 'idv', name: 'Identity V', category: 'game', img: 'assets/game/identity-v.png', fallback: 'https://via.placeholder.com/60/ff0055/fff?text=IDV', idPlaceholder: 'Masukkan User ID & Server', items: [{ name: '60 Echoes', price: 'Rp 16.000' }, { name: '305 Echoes', price: 'Rp 75.000' }] },
-    { id: 'speed', name: 'Speed Drifters', category: 'game', img: 'assets/game/speed-drifters.png', fallback: 'https://via.placeholder.com/60/ff0055/fff?text=SD', idPlaceholder: 'Masukkan Player ID', items: [{ name: '10 Diamond', price: 'Rp 3.000' }, { name: '130 Diamond', price: 'Rp 32.000' }] },
+// DATA SELURUH PRODUK SESUAI FOLDER ASET
+const productsData = [
+  // --- GAME ---
+  { id: 1, name: "Free Fire", category: "game", image: "assets/game/freefire.png" },
+  { id: 2, name: "Mobile Legends", category: "game", image: "assets/game/mobile-legends.png" },
+  { id: 3, name: "PUBG Mobile", category: "game", image: "assets/game/pubg-mobile.png" },
+  { id: 4, name: "CODM", category: "game", image: "assets/game/codm.png" },
+  { id: 5, name: "Valorant", category: "game", image: "assets/game/valorant.png" },
+  { id: 6, name: "Genshin Impact", category: "game", image: "assets/game/genshin.png" },
+  { id: 7, name: "eFootball", category: "game", image: "assets/game/efootball.png" },
+  { id: 8, name: "Honkai Star Rail", category: "game", image: "assets/game/honkai-star-rail.png" },
+  { id: 9, name: "Arena of Valor", category: "game", image: "assets/game/arena-of-valor.png" },
+  { id: 10, name: "Point Blank", category: "game", image: "assets/game/point-blank.png" },
+  { id: 11, name: "League of Legends", category: "game", image: "assets/game/league-of-legends.png" },
+  { id: 12, name: "FIFA Mobile", category: "game", image: "assets/game/fifa-mobile.png" },
+  { id: 13, name: "Sausage Man", category: "game", image: "assets/game/sausage-man.png" },
+  { id: 14, name: "Ragnarok Origin", category: "game", image: "assets/game/ragnarok-origin.png" },
+  { id: 15, name: "Clash of Clans", category: "game", image: "assets/game/clash-of-clans.png" },
+  { id: 16, name: "Clash Royale", category: "game", image: "assets/game/clash-royale.png" },
+  { id: 17, name: "Stumble Guys", category: "game", image: "assets/game/stumble-guys.png" },
+  { id: 18, name: "Brawl Stars", category: "game", image: "assets/game/brawl-stars.png" },
+  { id: 19, name: "Identity V", category: "game", image: "assets/game/identity-v.png" },
+  { id: 20, name: "Speed Drifters", category: "game", image: "assets/game/speed-drifters.png" },
 
-    // 📱 PULSA (20 ITEMS)
-    { id: 'telkomsel', name: 'Telkomsel Regulir', category: 'pulsa', img: 'assets/pulsa/telkomsel.png', fallback: 'https://via.placeholder.com/60/ff0055/fff?text=TSEL', idPlaceholder: 'Masukkan Nomor Telkomsel', items: [{ name: 'Pulsa 5.000', price: 'Rp 6.500' }, { name: 'Pulsa 10.000', price: 'Rp 11.500' }] },
-    { id: 'indosat', name: 'Indosat Regulir', category: 'pulsa', img: 'assets/pulsa/indosat.png', fallback: 'https://via.placeholder.com/60/ff0055/fff?text=ISAT', idPlaceholder: 'Masukkan Nomor Indosat', items: [{ name: 'Pulsa 5.000', price: 'Rp 6.000' }, { name: 'Pulsa 10.000', price: 'Rp 11.000' }] },
-    { id: 'xl', name: 'XL Regulir', category: 'pulsa', img: 'assets/pulsa/xl.png', fallback: 'https://via.placeholder.com/60/ff0055/fff?text=XL', idPlaceholder: 'Masukkan Nomor XL', items: [{ name: 'Pulsa 5.000', price: 'Rp 6.000' }, { name: 'Pulsa 10.000', price: 'Rp 11.000' }] },
-    { id: 'axis', name: 'Axis Regulir', category: 'pulsa', img: 'assets/pulsa/axis.png', fallback: 'https://via.placeholder.com/60/ff0055/fff?text=AXIS', idPlaceholder: 'Masukkan Nomor Axis', items: [{ name: 'Pulsa 5.000', price: 'Rp 6.000' }, { name: 'Pulsa 10.000', price: 'Rp 11.000' }] },
-    { id: 'tri', name: 'Tri Regulir', category: 'pulsa', img: 'assets/pulsa/tri.png', fallback: 'https://via.placeholder.com/60/ff0055/fff?text=TRI', idPlaceholder: 'Masukkan Nomor Tri', items: [{ name: 'Pulsa 5.000', price: 'Rp 6.000' }, { name: 'Pulsa 10.000', price: 'Rp 11.000' }] },
-    { id: 'smartfren', name: 'Smartfren Regulir', category: 'pulsa', img: 'assets/pulsa/smartfren.png', fallback: 'https://via.placeholder.com/60/ff0055/fff?text=SMART', idPlaceholder: 'Masukkan Nomor Smartfren', items: [{ name: 'Pulsa 5.000', price: 'Rp 6.000' }, { name: 'Pulsa 10.000', price: 'Rp 11.000' }] },
-    { id: 'byu', name: 'by.U Regulir', category: 'pulsa', img: 'assets/pulsa/byu.png', fallback: 'https://via.placeholder.com/60/ff0055/fff?text=BYU', idPlaceholder: 'Masukkan Nomor by.U', items: [{ name: 'Pulsa 5.000', price: 'Rp 6.500' }, { name: 'Pulsa 10.000', price: 'Rp 11.500' }] },
-    { id: 'tsel-tf', name: 'Telkomsel Transfer', category: 'pulsa', img: 'assets/pulsa/telkomsel-transfer.png', fallback: 'https://via.placeholder.com/60/ff0055/fff?text=TSEL+TF', idPlaceholder: 'Masukkan Nomor Telkomsel', items: [{ name: 'Transfer 15.000', price: 'Rp 16.000' }, { name: 'Transfer 50.000', price: 'Rp 51.000' }] },
-    { id: 'isat-tf', name: 'Indosat Transfer', category: 'pulsa', img: 'assets/pulsa/indosat-transfer.png', fallback: 'https://via.placeholder.com/60/ff0055/fff?text=ISAT+TF', idPlaceholder: 'Masukkan Nomor Indosat', items: [{ name: 'Transfer 10.000', price: 'Rp 10.500' }, { name: 'Transfer 25.000', price: 'Rp 25.000' }] },
-    { id: 'xl-tf', name: 'XL Transfer', category: 'pulsa', img: 'assets/pulsa/xl-transfer.png', fallback: 'https://via.placeholder.com/60/ff0055/fff?text=XL+TF', idPlaceholder: 'Masukkan Nomor XL', items: [{ name: 'Transfer 10.000', price: 'Rp 10.500' }, { name: 'Transfer 50.000', price: 'Rp 49.000' }] },
-    { id: 'axis-tf', name: 'Axis Transfer', category: 'pulsa', img: 'assets/pulsa/axis-transfer.png', fallback: 'https://via.placeholder.com/60/ff0055/fff?text=AXIS+TF', idPlaceholder: 'Masukkan Nomor Axis', items: [{ name: 'Transfer 10.000', price: 'Rp 10.500' }, { name: 'Transfer 25.000', price: 'Rp 25.000' }] },
-    { id: 'tri-tf', name: 'Tri Transfer', category: 'pulsa', img: 'assets/pulsa/tri-transfer.png', fallback: 'https://via.placeholder.com/60/ff0055/fff?text=TRI+TF', idPlaceholder: 'Masukkan Nomor Tri', items: [{ name: 'Transfer 10.000', price: 'Rp 10.500' }, { name: 'Transfer 30.000', price: 'Rp 30.000' }] },
-    { id: 'smart-tf', name: 'Smartfren Transfer', category: 'pulsa', img: 'assets/pulsa/smartfren-transfer.png', fallback: 'https://via.placeholder.com/60/ff0055/fff?text=SMART+TF', idPlaceholder: 'Masukkan Nomor Smartfren', items: [{ name: 'Transfer 10.000', price: 'Rp 10.500' }, { name: 'Transfer 50.000', price: 'Rp 50.000' }] },
-    { id: 'data-tsel', name: 'Paket Data Telkomsel', category: 'pulsa', img: 'assets/pulsa/paket-data-telkomsel.png', fallback: 'https://via.placeholder.com/60/ff0055/fff?text=DATA+TSEL', idPlaceholder: 'Masukkan Nomor Telkomsel', items: [{ name: '1.5 GB 3 Hari', price: 'Rp 12.000' }, { name: '3 GB 7 Hari', price: 'Rp 22.000' }] },
-    { id: 'data-isat', name: 'Paket Data Indosat', category: 'pulsa', img: 'assets/pulsa/paket-data-indosat.png', fallback: 'https://via.placeholder.com/60/ff0055/fff?text=DATA+ISAT', idPlaceholder: 'Masukkan Nomor Indosat', items: [{ name: 'Freedom 2 GB', price: 'Rp 11.000' }, { name: 'Freedom 7 GB', price: 'Rp 28.000' }] },
-    { id: 'data-xl', name: 'Paket Data XL', category: 'pulsa', img: 'assets/pulsa/paket-data-xl.png', fallback: 'https://via.placeholder.com/60/ff0055/fff?text=DATA+XL', idPlaceholder: 'Masukkan Nomor XL', items: [{ name: 'Xtra Combo 2 GB', price: 'Rp 12.000' }, { name: 'Xtra Combo 10 GB', price: 'Rp 35.000' }] },
-    { id: 'data-axis', name: 'Paket Data Axis', category: 'pulsa', img: 'assets/pulsa/paket-data-axis.png', fallback: 'https://via.placeholder.com/60/ff0055/fff?text=DATA+AXIS', idPlaceholder: 'Masukkan Nomor Axis', items: [{ name: 'Bronet 1 GB 30 Hari', price: 'Rp 12.000' }, { name: 'Bronet 3 GB 30 Hari', price: 'Rp 22.000' }] },
-    { id: 'data-tri', name: 'Paket Data Tri', category: 'pulsa', img: 'assets/pulsa/paket-data-tri.png', fallback: 'https://via.placeholder.com/60/ff0055/fff?text=DATA+TRI', idPlaceholder: 'Masukkan Nomor Tri', items: [{ name: 'Happy 2 GB 5 Hari', price: 'Rp 10.000' }, { name: 'Happy 9 GB 30 Hari', price: 'Rp 32.000' }] },
-    { id: 'data-smart', name: 'Paket Data Smartfren', category: 'pulsa', img: 'assets/pulsa/paket-data-smartfren.png', fallback: 'https://via.placeholder.com/60/ff0055/fff?text=DATA+SMART', idPlaceholder: 'Masukkan Nomor Smartfren', items: [{ name: 'Unlimited 1 Hari', price: 'Rp 10.000' }, { name: 'Nonstop 6 GB', price: 'Rp 32.000' }] },
-    { id: 'masa-aktif', name: 'Masa Aktif Kartu', category: 'pulsa', img: 'assets/pulsa/masa-aktif.png', fallback: 'https://via.placeholder.com/60/ff0055/fff?text=ACTIVE', idPlaceholder: 'Masukkan Nomor HP All Operator', items: [{ name: 'Masa Aktif 5 Hari', price: 'Rp 3.000' }, { name: 'Masa Aktif 30 Hari', price: 'Rp 15.000' }] },
+  // --- PULSA ---
+  { id: 21, name: "Telkomsel", category: "pulsa", image: "assets/pulsa/telkomsel.png" },
+  { id: 22, name: "Indosat", category: "pulsa", image: "assets/pulsa/indosat.png" },
+  { id: 23, name: "XL Axiata", category: "pulsa", image: "assets/pulsa/xl.png" },
+  { id: 24, name: "AXIS", category: "pulsa", image: "assets/pulsa/axis.png" },
+  { id: 25, name: "Tri", category: "pulsa", image: "assets/pulsa/tri.png" },
+  { id: 26, name: "Smartfren", category: "pulsa", image: "assets/pulsa/smartfren.png" },
+  { id: 27, name: "by.U", category: "pulsa", image: "assets/pulsa/byu.png" },
+  { id: 28, name: "Telkomsel Transfer", category: "pulsa", image: "assets/pulsa/telkomsel-transfer.png" },
+  { id: 29, name: "Indosat Transfer", category: "pulsa", image: "assets/pulsa/indosat-transfer.png" },
+  { id: 30, name: "XL Transfer", category: "pulsa", image: "assets/pulsa/xl-transfer.png" },
+  { id: 31, name: "AXIS Transfer", category: "pulsa", image: "assets/pulsa/axis-transfer.png" },
+  { id: 32, name: "Tri Transfer", category: "pulsa", image: "assets/pulsa/tri-transfer.png" },
+  { id: 33, name: "Smartfren Transfer", category: "pulsa", image: "assets/pulsa/smartfren-transfer.png" },
+  { id: 34, name: "Paket Data Telkomsel", category: "pulsa", image: "assets/pulsa/paket-data-telkomsel.png" },
+  { id: 35, name: "Paket Data Indosat", category: "pulsa", image: "assets/pulsa/paket-data-indosat.png" },
+  { id: 36, name: "Paket Data XL", category: "pulsa", image: "assets/pulsa/paket-data-xl.png" },
+  { id: 37, name: "Paket Data AXIS", category: "pulsa", image: "assets/pulsa/paket-data-axis.png" },
+  { id: 38, name: "Paket Data Tri", category: "pulsa", image: "assets/pulsa/paket-data-tri.png" },
+  { id: 39, name: "Paket Data Smartfren", category: "pulsa", image: "assets/pulsa/paket-data-smartfren.png" },
+  { id: 40, name: "Masa Aktif", category: "pulsa", image: "assets/pulsa/masa-aktif.png" },
 
-    // 💳 E-WALLET (20 ITEMS)
-    { id: 'dana', name: 'DANA User', category: 'ewallet', img: 'assets/ewallet/dana.png', fallback: 'https://via.placeholder.com/60/ff0055/fff?text=DANA', idPlaceholder: 'Masukkan Nomor DANA', items: [{ name: 'Saldo 10.000', price: 'Rp 11.000' }, { name: 'Saldo 50.000', price: 'Rp 51.000' }] },
-    { id: 'ovo', name: 'OVO User', category: 'ewallet', img: 'assets/ewallet/ovo.png', fallback: 'https://via.placeholder.com/60/ff0055/fff?text=OVO', idPlaceholder: 'Masukkan Nomor OVO', items: [{ name: 'Saldo 10.000', price: 'Rp 11.000' }, { name: 'Saldo 50.000', price: 'Rp 51.000' }] },
-    { id: 'gopay', name: 'GoPay User', category: 'ewallet', img: 'assets/ewallet/gopay.png', fallback: 'https://via.placeholder.com/60/ff0055/fff?text=GOPAY', idPlaceholder: 'Masukkan Nomor GoPay', items: [{ name: 'Saldo 10.000', price: 'Rp 11.000' }, { name: 'Saldo 50.000', price: 'Rp 51.000' }] },
-    { id: 'shopeepay', name: 'ShopeePay User', category: 'ewallet', img: 'assets/ewallet/shopeepay.png', fallback: 'https://via.placeholder.com/60/ff0055/fff?text=SPAY', idPlaceholder: 'Masukkan Nomor ShopeePay', items: [{ name: 'Saldo 10.000', price: 'Rp 11.000' }, { name: 'Saldo 50.000', price: 'Rp 51.000' }] },
-    { id: 'linkaja', name: 'LinkAja User', category: 'ewallet', img: 'assets/ewallet/linkaja.png', fallback: 'https://via.placeholder.com/60/ff0055/fff?text=LINK', idPlaceholder: 'Masukkan Nomor LinkAja', items: [{ name: 'Saldo 10.000', price: 'Rp 11.000' }, { name: 'Saldo 50.000', price: 'Rp 51.000' }] },
-    { id: 'isaku', name: 'i.saku User', category: 'ewallet', img: 'assets/ewallet/isaku.png', fallback: 'https://via.placeholder.com/60/ff0055/fff?text=ISAKU', idPlaceholder: 'Masukkan Nomor i.saku', items: [{ name: 'Saldo 10.000', price: 'Rp 11.000' }, { name: 'Saldo 50.000', price: 'Rp 51.000' }] },
-    { id: 'maxim-driver', name: 'Maxim Driver', category: 'ewallet', img: 'assets/ewallet/maxim-driver.png', fallback: 'https://via.placeholder.com/60/ff0055/fff?text=MAX-D', idPlaceholder: 'Masukkan ID Driver Maxim', items: [{ name: 'Saldo 10.000', price: 'Rp 12.000' }, { name: 'Saldo 50.000', price: 'Rp 52.000' }] },
-    { id: 'maxim-pass', name: 'Maxim Pelanggan', category: 'ewallet', img: 'assets/ewallet/maxim-passenger.png', fallback: 'https://via.placeholder.com/60/ff0055/fff?text=MAX-P', idPlaceholder: 'Masukkan Nomor Maxim', items: [{ name: 'Saldo 10.000', price: 'Rp 11.000' }, { name: 'Saldo 20.000', price: 'Rp 21.000' }] },
-    { id: 'gojek-driver', name: 'Gojek Driver', category: 'ewallet', img: 'assets/ewallet/gojek-driver.png', fallback: 'https://via.placeholder.com/60/ff0055/fff?text=GO-D', idPlaceholder: 'Masukkan Nomor HP Driver', items: [{ name: 'Saldo 20.000', price: 'Rp 21.000' }, { name: 'Saldo 50.000', price: 'Rp 51.000' }] },
-    { id: 'grab-driver', name: 'Grab Driver', category: 'ewallet', img: 'assets/ewallet/grab-driver.png', fallback: 'https://via.placeholder.com/60/ff0055/fff?text=GRAB-D', idPlaceholder: 'Masukkan Nomor HP Driver', items: [{ name: 'Saldo 20.000', price: 'Rp 21.000' }, { name: 'Saldo 50.000', price: 'Rp 51.000' }] },
-    { id: 'kaspro', name: 'KasPro', category: 'ewallet', img: 'assets/ewallet/kaspro.png', fallback: 'https://via.placeholder.com/60/ff0055/fff?text=KAS', idPlaceholder: 'Masukkan Nomor KasPro', items: [{ name: 'Saldo 10.000', price: 'Rp 11.000' }, { name: 'Saldo 50.000', price: 'Rp 51.000' }] },
-    { id: 'doku', name: 'DOKU Wallet', category: 'ewallet', img: 'assets/ewallet/doku.png', fallback: 'https://via.placeholder.com/60/ff0055/fff?text=DOKU', idPlaceholder: 'Masukkan ID DOKU', items: [{ name: 'Saldo 20.000', price: 'Rp 21.000' }, { name: 'Saldo 50.000', price: 'Rp 51.000' }] },
-    { id: 'sakuku', name: 'Sakuku BCA', category: 'ewallet', img: 'assets/ewallet/sakuku.png', fallback: 'https://via.placeholder.com/60/ff0055/fff?text=SAKU', idPlaceholder: 'Masukkan Nomor Sakuku', items: [{ name: 'Saldo 25.000', price: 'Rp 26.000' }, { name: 'Saldo 50.000', price: 'Rp 51.000' }] },
-    { id: 'tapcash', name: 'BNI TapCash', category: 'ewallet', img: 'assets/ewallet/tapcash.png', fallback: 'https://via.placeholder.com/60/ff0055/fff?text=TAPCASH', idPlaceholder: 'Masukkan Nomor Kartu TapCash', items: [{ name: 'Saldo 20.000', price: 'Rp 21.500' }, { name: 'Saldo 50.000', price: 'Rp 51.500' }] },
-    { id: 'emoney', name: 'Mandiri e-Money', category: 'ewallet', img: 'assets/ewallet/emoney-mandiri.png', fallback: 'https://via.placeholder.com/60/ff0055/fff?text=EMONEY', idPlaceholder: 'Masukkan Nomor Kartu e-Money', items: [{ name: 'Saldo 20.000', price: 'Rp 21.500' }, { name: 'Saldo 50.000', price: 'Rp 51.500' }] },
-    { id: 'brizzi', name: 'BRIZZI BRI', category: 'ewallet', img: 'assets/ewallet/brizzi.png', fallback: 'https://via.placeholder.com/60/ff0055/fff?text=BRIZZI', idPlaceholder: 'Masukkan Nomor Kartu Brizzi', items: [{ name: 'Saldo 20.000', price: 'Rp 21.500' }, { name: 'Saldo 50.000', price: 'Rp 51.500' }] },
-    { id: 'flazz', name: 'Flazz BCA', category: 'ewallet', img: 'assets/ewallet/flazz-bca.png', fallback: 'https://via.placeholder.com/60/ff0055/fff?text=FLAZZ', idPlaceholder: 'Masukkan Nomor Kartu Flazz', items: [{ name: 'Saldo 20.000', price: 'Rp 21.500' }, { name: 'Saldo 50.000', price: 'Rp 51.500' }] },
-    { id: 'astropay', name: 'AstroPay', category: 'ewallet', img: 'assets/ewallet/astro-pay.png', fallback: 'https://via.placeholder.com/60/ff0055/fff?text=ASTRO', idPlaceholder: 'Masukkan ID Akun AstroPay', items: [{ name: 'Saldo $2', price: 'Rp 32.000' }, { name: 'Saldo $5', price: 'Rp 80.000' }] },
-    { id: 'seabank', name: 'Transfer SeaBank', category: 'ewallet', img: 'assets/ewallet/seabank.png', fallback: 'https://via.placeholder.com/60/ff0055/fff?text=SEA', idPlaceholder: 'Masukkan Nomor Rekening SeaBank', items: [{ name: 'Topup 20.000', price: 'Rp 20.500' }, { name: 'Topup 50.000', price: 'Rp 50.500' }] },
-    { id: 'neobank', name: 'Transfer NeoBank', category: 'ewallet', img: 'assets/ewallet/neo-bank.png', fallback: 'https://via.placeholder.com/60/ff0055/fff?text=NEO', idPlaceholder: 'Masukkan Nomor Rekening Neo', items: [{ name: 'Topup 20.000', price: 'Rp 20.500' }, { name: 'Topup 50.000', price: 'Rp 50.500' }] },
+  // --- EWALLET ---
+  { id: 41, name: "DANA", category: "ewallet", image: "assets/ewallet/dana.png" },
+  { id: 42, name: "OVO", category: "ewallet", image: "assets/ewallet/ovo.png" },
+  { id: 43, name: "GoPay", category: "ewallet", image: "assets/ewallet/gopay.png" },
+  { id: 44, name: "ShopeePay", category: "ewallet", image: "assets/ewallet/shopeepay.png" },
+  { id: 45, name: "LinkAja", category: "ewallet", image: "assets/ewallet/linkaja.png" },
+  { id: 46, name: "i.saku", category: "ewallet", image: "assets/ewallet/isaku.png" },
+  { id: 47, name: "Maxim Driver", category: "ewallet", image: "assets/ewallet/maxim-driver.png" },
+  { id: 48, name: "Maxim Passenger", category: "ewallet", image: "assets/ewallet/maxim-passenger.png" },
+  { id: 49, name: "Gojek Driver", category: "ewallet", image: "assets/ewallet/gojek-driver.png" },
+  { id: 50, name: "Grab Driver", category: "ewallet", image: "assets/ewallet/grab-driver.png" },
+  { id: 51, name: "KasPro", category: "ewallet", image: "assets/ewallet/kaspro.png" },
+  { id: 52, name: "DOKU", category: "ewallet", image: "assets/ewallet/doku.png" },
+  { id: 53, name: "Sakuku", category: "ewallet", image: "assets/ewallet/sakuku.png" },
+  { id: 54, name: "TapCash", category: "ewallet", image: "assets/ewallet/tapcash.png" },
+  { id: 55, name: "e-Money Mandiri", category: "ewallet", image: "assets/ewallet/emoney-mandiri.png" },
+  { id: 56, name: "Brizzi", category: "ewallet", image: "assets/ewallet/brizzi.png" },
+  { id: 57, name: "Flazz BCA", category: "ewallet", image: "assets/ewallet/flazz-bca.png" },
+  { id: 58, name: "AstroPay", category: "ewallet", image: "assets/ewallet/astro-pay.png" },
+  { id: 59, name: "SeaBank", category: "ewallet", image: "assets/ewallet/seabank.png" },
+  { id: 60, name: "Neobank", category: "ewallet", image: "assets/ewallet/neo-bank.png" },
 
-    // 🎟️ VOUCHER (20 ITEMS)
-    { id: 'gp', name: 'Google Play Code', category: 'voucher', img: 'assets/voucher/googleplay.png', fallback: 'https://via.placeholder.com/60/ff0055/fff?text=GP', idPlaceholder: 'Masukkan WA Penerima Kode', items: [{ name: 'Voucher 20.000', price: 'Rp 21.500' }, { name: 'Voucher 50.000', price: 'Rp 53.000' }] },
-    { id: 'garena', name: 'Garena Shell', category: 'voucher', img: 'assets/voucher/garena.png', fallback: 'https://via.placeholder.com/60/ff0055/fff?text=GAR', idPlaceholder: 'Masukkan WA Penerima Kode', items: [{ name: '33 Shell', price: 'Rp 10.000' }, { name: '165 Shell', price: 'Rp 50.000' }] },
-    { id: 'steam', name: 'Steam Wallet IDR', category: 'voucher', img: 'assets/voucher/steam.png', fallback: 'https://via.placeholder.com/60/ff0055/fff?text=STEAM', idPlaceholder: 'Masukkan WA Penerima Kode', items: [{ name: 'IDR 12.000', price: 'Rp 14.000' }, { name: 'IDR 45.000', price: 'Rp 49.000' }] },
-    { id: 'roblox', name: 'Roblox Gift Card', category: 'voucher', img: 'assets/voucher/roblox.png', fallback: 'https://via.placeholder.com/60/ff0055/fff?text=RBLX', idPlaceholder: 'Masukkan WA Penerima Kode', items: [{ name: '100 Robux', price: 'Rp 22.000' }, 
+  // --- VOUCHER ---
+  { id: 61, name: "Google Play", category: "voucher", image: "assets/voucher/googleplay.png" },
+  { id: 62, name: "Garena", category: "voucher", image: "assets/voucher/garena.png" },
+  { id: 63, name: "Steam", category: "voucher", image: "assets/voucher/steam.png" },
+  { id: 64, name: "Roblox", category: "voucher", image: "assets/voucher/roblox.png" },
+  { id: 65, name: "UniPin", category: "voucher", image: "assets/voucher/unipin.png" },
+  { id: 66, name: "Megaxus", category: "voucher", image: "assets/voucher/megaxus.png" },
+  { id: 67, name: "PlayStation", category: "voucher", image: "assets/voucher/Playstation.png" },
+  { id: 68, name: "Nintendo", category: "voucher", image: "assets/voucher/nintendo.png" },
+  { id: 69, name: "Xbox", category: "voucher", image: "assets/voucher/xbox.png" },
+  { id: 70, name: "Spotify", category: "voucher", image: "assets/voucher/spotify.png" },
+  { id: 71, name: "Netflix", category: "voucher", image: "assets/voucher/netflix.png" },
+  { id: 72, name: "Vidio", category: "voucher", image: "assets/voucher/vidio.png" },
+  { id: 73, name: "Disney+", category: "voucher", image: "assets/voucher/disney.png" },
+  { id: 74, name: "YouTube Premium", category: "voucher", image: "assets/voucher/youtube-premium.png" },
+  { id: 75, name: "WeTV", category: "voucher", image: "assets/voucher/wetv.png" },
+  { id: 76, name: "iQIYI", category: "voucher", image: "assets/voucher/iqiyi.png" },
+  { id: 77, name: "Tinder", category: "voucher", image: "assets/voucher/Tinder.png" },
+  { id: 78, name: "Razer Gold", category: "voucher", image: "assets/voucher/Razer-gold.png" },
+  { id: 79, name: "Blizzard", category: "voucher", image: "assets/voucher/blizzard.png" },
+  { id: 80, name: "EA Play", category: "voucher", image: "assets/voucher/EA-play.png" }
+];
+
+let currentCategory = 'semua';
+
+// TAMPILKAN PRODUK
+function displayProducts(items) {
+  const grid = document.getElementById('productGrid');
+  grid.innerHTML = '';
+
+  if (items.length === 0) {
+    grid.innerHTML = `<p style="grid-column: 1/-1; text-align: center; color: #888; padding: 20px;">Produk tidak ditemukan...</p>`;
+    return;
+  }
+
+  items.forEach(prod => {
+    const card = document.createElement('div');
+    card.className = 'product-card';
+    card.onclick = () => orderViaWA(prod.name);
+    card.innerHTML = `
+      <img src="${prod.image}" alt="${prod.name}" onerror="this.src='https://via.placeholder.com/150/232736/fff?text=${encodeURIComponent(prod.name)}'">
+      <div class="product-title">${prod.name}</div>
+      <div class="product-category">${prod.category.toUpperCase()}</div>
+      <button class="btn-buy">Top Up</button>
+    `;
+    grid.appendChild(card);
+  });
+}
+
+// FILTER KATEGORI
+function filterCategory(cat, element) {
+  currentCategory = cat;
+  
+  document.querySelectorAll('.cat-btn').forEach(btn => btn.classList.remove('active'));
+  element.classList.add('active');
+
+  applyFilters();
+}
+
+// FILTER PENCARIAN & KATEGORI GABUNGAN
+function applyFilters() {
+  const searchVal = document.getElementById('searchInput').value.toLowerCase();
+
+  const filtered = productsData.filter(prod => {
+    const matchCategory = (currentCategory === 'semua') || (prod.category === currentCategory);
+    const matchSearch = prod.name.toLowerCase().includes(searchVal);
+    return matchCategory && matchSearch;
+  });
+
+  displayProducts(filtered);
+}
+
+function filterProducts() {
+  applyFilters();
+}
+
+// DIRECT WHATSAPP ORDER
+function orderViaWA(productName) {
+  const waNumber = "6289618602130";
+  const message = encodeURIComponent(`Halo FanzzTzyStore, saya ingin top up/membeli ${productName}`);
+  window.open(`https://wa.me/${waNumber}?text=${message}`, '_blank');
+}
+
+// BANNER SLIDER SCRIPT
+let slideIndex = 0;
+const slides = document.querySelectorAll('.banner-slide');
+const dots = document.querySelectorAll('.dot');
+
+function showSlide(n) {
+  if (n >= slides.length) slideIndex = 0;
+  if (n < 0) slideIndex = slides.length - 1;
+
+  slides.forEach(slide => slide.classList.remove('active'));
+  dots.forEach(dot => dot.classList.remove('active'));
+
+  slides[slideIndex].classList.add('active');
+  dots[slideIndex].classList.add('active');
+}
+
+function moveSlide(n) {
+  showSlide(slideIndex += n);
+}
+
+function setSlide(n) {
+  showSlide(slideIndex = n);
+}
+
+setInterval(() => {
+  moveSlide(1);
+}, 4000);
+
+// INITIAL RENDER
+document.addEventListener('DOMContentLoaded', () => {
+  displayProducts(productsData);
+});
+   
